@@ -47,7 +47,7 @@ This repository provides Python tools for calculating genome metrics, generating
 ### 1. Genome Metrics Calculator
 Calculates genome size statistics from FASTA files.
 ```bash
-python scripts/genome_metrics.py --input-dir /path/to/fasta_files --output-file /path/to/output.csv
+python scripts/genome_metrics.py --input-dir <FASTA FILES DIRECTORY> --output-file <OUTPUT.csv>
 ```
 
 ### 2. Visualization Tools
