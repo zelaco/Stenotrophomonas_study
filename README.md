@@ -54,69 +54,69 @@ python scripts/genome_metrics.py --input-dir <FASTA FILES DIRECTORY> --output-fi
 #### Generate a Map
 Generate a choropleth map of isolate distribution by country.
 ```bash
-python scripts/map.py --metadata /path/to/metadata.xlsx --output /path/to/map.html
+python scripts/map.py --metadata <EXCEL FILE> --output <HTML FILE>
 ```
 
 #### Generate a Legend
 Create a standalone legend for species or other metadata.
 ```bash
-python scripts/map_legend.py --metadata /path/to/metadata.xlsx --output /path/to/legend.png
+python scripts/map_legend.py --metadata <EXCEL FILE> --output <PNG FILE>
 ```
 
 #### Generate Pie Charts
 Plot pie charts showing species lineage by continent.
 ```bash
-python scripts/map_piechart.py --metadata /path/to/metadata.xlsx --output /path/to/pie_chart.png
+python scripts/map_piechart.py --metadata <EXCEL FILE> --output <PNG FILE>
 ```
 
 #### Generate ANI Histogram
 Create a histogram of ANI percentages.
 ```bash
-python scripts/anib_histogram.py --matrix /path/to/anib_matrix.xlsx --output /path/to/histogram.png
+python scripts/anib_histogram.py --matrix <EXCEL FILE> --output <PNG FILE>
 ```
 
 ### 3. Matrix Analysis Tools
 #### Generate a Clustermap
 Create a hierarchical clustermap for similarity matrices.
 ```bash
-python scripts/clustermap.py --matrix /path/to/matrix.xlsx --output /path/to/clustermap.png
+python scripts/clustermap.py --matrix <EXCEL FILE> --output <PNG FILE>
 ```
 
 #### Convert Matrix to Newick
 Convert similarity matrices into Newick-formatted trees.
 ```bash
-python scripts/matrix_to_newick.py --matrix /path/to/matrix.xlsx --output /path/to/tree.newick
+python scripts/matrix_to_newick.py --matrix <EXCEL FILE> --output <NEWICK FILE>
 ```
 
 #### Compare ANIb vs GGDC
 Plot correlations between ANIb and GGDC values.
 ```bash
-python scripts/anib_vs_ggdc.py --anib /path/to/anib_matrix.xlsx --ggdc /path/to/ggdc_matrix.xlsx --output /path/to/scatterplot.png
+python scripts/anib_vs_ggdc.py --anib <EXCEL FILE> --ggdc <EXCEL FILE> --output <PNG FILE>
 ```
 
 ### 4. Gene Presence/Absence Analysis
 #### Generate a Gene Heatmap
 Generate heatmaps from gene presence/absence data.
 ```bash
-python scripts/gene_presence_absence.py --gene-file /path/to/gene_presence.csv --output /path/to/heatmap.png
+python scripts/gene_presence_absence.py --gene-file <CSV FILE> --output <PNG FILE>
 ```
 
 ### 5. Pan-Genome Analysis
 #### Calculate and Plot Pan-Core Genome Evolution
 Calculate pan-genome statistics and plot pan-core genome evolution.
 ```bash
-python scripts/pan_genome_analysis.py --gene-file /path/to/gene_presence.csv \
-                                       --output-stats /path/to/pan_genome_stats.csv \
-                                       --output-plot /path/to/pan_core_genome.png
+python scripts/pan_genome_analysis.py --gene-file <CSV FILE> \
+                                       --output-stats <CSV FILE> \
+                                       --output-plot <PNG FILE>
 ```
 
 ### 6. Co-occurrence Networks
 Visualize co-occurrence of resistance and virulence genes.
 ```bash
-python scripts/co_occurrence_arg_vf.py --metadata /path/to/metadata.xlsx \
-                                       --virulence /path/to/virulence_genes.tab \
-                                       --resistance /path/to/resistance_genes.tab \
-                                       --output /path/to/co_occurrence_network.png
+python scripts/co_occurrence_arg_vf.py --metadata <EXCEL FILE> \
+                                       --virulence <TABULAR FILE> \
+                                       --resistance <TABULAR FILE> \
+                                       --output <PNG FILE>
 ```
 
 
