@@ -6,7 +6,7 @@ import argparse
 def matrix_to_newick(matrix_file, output_file):
     # Load the matrix
     df = pd.read_excel(matrix_file, index_col=0)
-    
+
     # Ensure matrix is symmetrical
     size = len(df.columns)
     similarity_matrix = np.zeros((size, size))
@@ -32,11 +32,13 @@ def matrix_to_newick(matrix_file, output_file):
     def to_newick(Z, labels):
         def get_newick(node, parent_dist, leaf_names, newick, distances):
             if node < len(leaf_names):
-                return f"{leaf_names[node]}:{parent_dist - distances[node]}{newick}"
+                return f"{leaf_names[node]}:{parent_dist - distances.get(node, 0)}{newick}"
             else:
                 left, right = int(Z[node - len(leaf_names), 0]), int(Z[node - len(leaf_names), 1])
                 dist = Z[node - len(leaf_names), 2]
-                return f"({get_newick(left, dist, leaf_names, newick, distances)},{get_newick(right, dist, leaf_names, newick, distances)}):{parent_dist - distances[node]}{newick}"
+                left_newick = get_newick(left, dist, leaf_names, newick, distances)
+                right_newick = get_newick(right, dist, leaf_names, newick, distances)
+                return f"({left_newick},{right_newick}):{parent_dist - distances.get(node, 0)}{newick}"
         distances = {i + len(labels): merge[2] for i, merge in enumerate(Z)}
         return get_newick(len(Z) + len(labels) - 1, Z[-1, 2], labels, "", distances) + ";"
 
