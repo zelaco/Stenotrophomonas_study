@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 
-# Load the updated metadata with the 'Color' column
-file_path = 'Data/Updated_Metadata.xlsx'
+# Load the metadata 
+file_path = 'Data/Metadata.xlsx'
 metadata = pd.read_excel(file_path)
 
 # Group the data by continent and species (Final Id)
@@ -19,7 +19,7 @@ species_color_map = metadata.drop_duplicates(subset=['Final Id']).set_index('Fin
 n_continents = len(lineage_by_continent.index)
 
 # Set up the pie chart grid layout: 2 rows and columns based on the number of continents
-fig, axes = plt.subplots(2, (n_continents + 1) // 2, figsize=(20, 15))  # 2 rows, divide continents into columns
+fig, axes = plt.subplots(2, (n_continents + 1) // 2, figsize=(20, 15))  
 
 # Flatten axes for easier iteration
 axes = axes.flatten()
@@ -29,7 +29,7 @@ continents = lineage_by_continent.index.tolist()
 
 for i, continent in enumerate(continents):
     sizes = lineage_by_continent.loc[continent]
-    sizes = sizes[sizes > 0]  # Filter out zero values
+    sizes = sizes[sizes > 0]  
     labels = sizes.index.tolist()
     colors = [species_color_map.get(species, "#000000") for species in labels]  # Get corresponding colors
     
@@ -42,24 +42,7 @@ for ax in axes[len(continents):]:
     ax.axis('off')
 
 # Adjust layout for pie charts
-plt.tight_layout(rect=[0, 0.2, 1, 1])  # Leave space for the legend below the charts
-
-# --- Shared legend creation ---
-
-# Create custom legend handles to ensure correct color mapping
-legend_handles = [Patch(color=species_color_map[species], label=species) for species in species_list]
-
-# Add the legend below the pie charts
-plt.legend(
-    handles=legend_handles,
-    title='Species',
-    ncol=5,  # Number of columns for the legend
-    fontsize='small',
-    frameon=False,
-    loc='right',
-    bbox_to_anchor=(0, -0.5)
-)
-
+plt.tight_layout(rect=[0, 0.2, 1, 1]) 
 
 # save the plot
 plt.savefig('Outputs/pie_chart.png', dpi=300)

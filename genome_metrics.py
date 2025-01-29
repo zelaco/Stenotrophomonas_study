@@ -2,7 +2,6 @@ from Bio import SeqIO
 import os
 import csv
 import numpy as np
-import argparse
 
 def calculate_genome_metrics(fasta_file):
     contig_lengths = []
@@ -53,15 +52,11 @@ def save_results_to_csv(results, output_file):
         for result in results:
             writer.writerow(result)
 
-def main():
-    parser = argparse.ArgumentParser(description="Calculate genome metrics from FASTA files.")
-    parser.add_argument('--input-dir', required=True, help="Directory containing FASTA files")
-    parser.add_argument('--output-file', required=True, help="Output CSV file path")
-    args = parser.parse_args()
+# Specify the directory containing the FASTA files and the output CSV file
+directory = "genomes"
+output_file = "genome_stats.csv"
 
-    results = process_fasta_files_in_directory(args.input_dir)
-    save_results_to_csv(results, args.output_file)
-    print(f"Results saved to {args.output_file}")
+results = process_fasta_files_in_directory(directory)
+save_results_to_csv(results, output_file)
 
-if __name__ == "__main__":
-    main()
+print(f"Results saved to {output_file}")

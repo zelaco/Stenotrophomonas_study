@@ -1,122 +1,46 @@
 # Stenotrophomonas Study
 
-This repository provides Python tools for calculating genome metrics, generating visualizations, and analyzing genomic data related to the chapter II of my doctoral thesis, and upcoming publication.
+## Code supplement
 
-## Features
-- **Genome Metrics Calculator**:
-  - Parses multiple FASTA files in a directory.
-  - Calculates genome statistics including:
-    - Genome size
-    - GC content
-    - Number of contigs
-    - N50
-    - Longest and shortest contig lengths
-    - Average contig length
-  - Saves results to a CSV file.
+This repository provides Python scripts for calculating genome metrics, generating visualizations, and analyzing genomic data related to the chapter II of my doctoral thesis, and upcoming publication. regarding genomes of the genus Stenotrophomonas.
 
-- **Visualization Tools**:
-  - Generate maps of isolate distribution by country.
-  - Create standalone legends for maps.
-  - Generate pie charts grouped by continents and species.
-  - Produce histograms of ANI percentages.
+## Script explanation
+- **genome_metrics.py**:
+    - Parses multiple FASTA files in a directory.
+    - Calculates genome statistics including:
+        - Genome size
+        - GC content
+        - Number of contigs
+        - N50
+        - Longest and shortest contig lengths
+        - Average contig length
+    - Saves results to a CSV file.
 
-- **Matrix Analysis Tools**:
-  - Create clustermaps for similarity matrices (ANIb, dDDH, AAI).
-  - Convert similarity matrices to Newick-formatted phylogenetic trees.
-  - Compare ANIb vs. GGDC values with scatter plots.
+- **map directory**:
+  - Requires a metadata excel file with country, continent and species name information
+  - map/map.py generates a map of isolate distribution by country.
+  - map/map_legend.py creates a standalone custom legend for the map data.
+  - map/map_piechart.py generates pie charts grouped by continents and species.
 
-- **Gene Presence/Absence Analysis**:
-  - Generate heatmaps from gene presence/absence data.
+- **taxonomy directory**:
+  - Requires similarity matrix of genome-based identification data (ANIb. dDDH or AAI)
+  - taxonomy/clustermap.py creates clustermaps for similarity matrices (ANIb, dDDH, AAI), with colored species names based on the previous metadata file.
+  - taxonomy/anib_vs_ggdc.py compares the ANIb and dDDH values with scatter plots, with lines indicating species thresholds.
+  - taxonomy/anib_histogram.py creates an histogram of the distributed anib values.
 
-- **Co-occurrence Networks**:
-  - Generate co-occurrence networks for resistance and virulence genes.
+- **pan_genome.ipynb**:
+  - requires a gene presence/absence matrix 
+  - Generates a clustermap from gene presence/absence data.
+  - Provides data regarding the core and pan genome size.
+  - Performs a plot showing the evolution of core and pan genome based on the previous data.
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/zelaco/Stenotrophomonas_study.git
-   cd Stenotrophomonas_study
-   ```
+- **co_occurrence_arg_vf.py**:
+  - Requires a metadata file with origin information and the summary table outputs from abricate regarding antibiotic resistance and virulence genes
+  - generates co-occurrence networks for resistance and virulence genes.
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Contact
 
-## Usage
-### 1. Genome Metrics Calculator
-Calculates genome size statistics from FASTA files.
-```bash
-python scripts/genome_metrics.py --input-dir <FASTA FILES DIRECTORY> --output-file <OUTPUT.csv>
-```
+If you have any questions or need further information, feel free to reach out:
 
-### 2. Visualization Tools
-#### Generate a Map
-Generate a choropleth map of isolate distribution by country.
-```bash
-python scripts/map.py --metadata <EXCEL FILE> --output <HTML FILE>
-```
-
-#### Generate a Legend
-Create a standalone legend for species or other metadata.
-```bash
-python scripts/map_legend.py --metadata <EXCEL FILE> --output <PNG FILE>
-```
-
-#### Generate Pie Charts
-Plot pie charts showing species lineage by continent.
-```bash
-python scripts/map_piechart.py --metadata <EXCEL FILE> --output <PNG FILE>
-```
-
-#### Generate ANI Histogram
-Create a histogram of ANI percentages.
-```bash
-python scripts/anib_histogram.py --matrix <EXCEL FILE> --output <PNG FILE>
-```
-
-### 3. Matrix Analysis Tools
-#### Generate a Clustermap
-Create a hierarchical clustermap for similarity matrices.
-```bash
-python scripts/clustermap.py --matrix <EXCEL FILE> --output <PNG FILE>
-```
-
-#### Convert Matrix to Newick
-Convert similarity matrices into Newick-formatted trees.
-```bash
-python scripts/matrix_to_newick.py --matrix <EXCEL FILE> --output <NEWICK FILE>
-```
-
-#### Compare ANIb vs GGDC
-Plot correlations between ANIb and GGDC values.
-```bash
-python scripts/anib_vs_ggdc.py --anib <EXCEL FILE> --ggdc <EXCEL FILE> --output <PNG FILE>
-```
-
-### 4. Gene Presence/Absence Analysis
-#### Generate a Gene Heatmap
-Generate heatmaps from gene presence/absence data.
-```bash
-python scripts/gene_presence_absence.py --gene-file <CSV FILE> --output <PNG FILE>
-```
-
-### 5. Pan-Genome Analysis
-#### Calculate and Plot Pan-Core Genome Evolution
-Calculate pan-genome statistics and plot pan-core genome evolution.
-```bash
-python scripts/pan_genome_analysis.py --gene-file <CSV FILE> \
-                                       --output-stats <CSV FILE> \
-                                       --output-plot <PNG FILE>
-```
-
-### 6. Co-occurrence Networks
-Visualize co-occurrence of resistance and virulence genes.
-```bash
-python scripts/co_occurrence_arg_vf.py --metadata <EXCEL FILE> \
-                                       --virulence <TABULAR FILE> \
-                                       --resistance <TABULAR FILE> \
-                                       --output <PNG FILE>
-```
-
-
+    Email: [j.serpa@uib.es]
+    GitHub: [github.com/zelaco]
