@@ -5,7 +5,7 @@
 This repository provides Python scripts for calculating genome metrics, generating visualizations, and analyzing genomic data related to the chapter II of my doctoral thesis, and upcoming publication. regarding genomes of the genus Stenotrophomonas.
 
 ## Script explanation
-- **[genome_metrics.py]**:
+- **'genome_metrics.py'**:
     - Parses multiple FASTA files in a directory.
     - Calculates genome statistics including:
         - Genome size
@@ -18,7 +18,7 @@ This repository provides Python scripts for calculating genome metrics, generati
 
 - **map directory**:
   - Requires a metadata excel file with country, continent and species name information
-  - [map/map.py] generates a map of isolate distribution by country.
+  - 'map/map.py' generates a map of isolate distribution by country.
   - [map/map_legend.py] creates a standalone custom legend for the map data.
   - [map/map_piechart.py] generates pie charts grouped by continents and species.
 
