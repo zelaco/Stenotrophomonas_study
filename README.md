@@ -1,8 +1,8 @@
-# Stenotrophomonas Study
+# *Stenotrophomonas* Study
 
 ## Code supplement
 
-This repository provides Python scripts for calculating genome metrics, generating visualizations, and analyzing genomic data related to the chapter II of my doctoral thesis, and upcoming publication. regarding genomes of the genus Stenotrophomonas.
+This repository provides Python scripts for calculating genome metrics, generating visualizations, and analyzing genomic data related to the chapter II of my doctoral thesis, and upcoming publication. regarding genomes of the genus *Stenotrophomonas*.
 
 ## Script explanation
 ### `genome_metrics.py`:
