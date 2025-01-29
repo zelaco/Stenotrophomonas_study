@@ -25,8 +25,8 @@ Requires a metadata Excel file with country, continent, and species name informa
 ### **taxonomy directory**:
 * Requires similarity matrix of genome-based identification data (ANIb. dDDH or AAI)
 * `clustermap.py` creates clustermaps for similarity matrices (ANIb, dDDH, AAI), with colored species names based on the previous metadata file.
-* `anib_vs_ggdc.py compares the ANIb and dDDH values with scatter plots, with lines indicating species thresholds.
-* `taxonomy/anib_histogram.py creates an histogram of the distributed anib values.
+* `anib_vs_ggdc.py` compares the ANIb and dDDH values with scatter plots, with lines indicating species thresholds.
+* `anib_histogram.py` creates an histogram of the distributed anib values.
 
 ### `pan_genome.ipynb`:
 * Requires a gene presence/absence matrix.
